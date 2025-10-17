@@ -1,0 +1,45 @@
+<!-- login.html -->
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Login - Uninove</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body class="login-page">
+  <div class="login-panel" role="main" aria-labelledby="loginTitle">
+    <div class="login-top">
+      <div class="logo">UNINOVE</div>
+    </div>
+
+    <div class="login-body">
+      <div class="toggle-cta" role="tablist">
+        <button class="active">RA</button>
+        <button>CPF</button>
+      </div>
+
+      <div class="field">
+        <div class="or-input">
+          <span>👤</span>
+          <input id="loginRA" placeholder="Digite seu RA" />
+        </div>
+      </div>
+
+      <div class="field">
+        <div class="or-input">
+          <span>🔒</span>
+          <input id="loginPw" type="password" placeholder="Digite sua senha" />
+          <div id="eye2" class="eye" title="Mostrar/Esconder">👁️</div>
+        </div>
+      </div>
+
+      <a href="cadastro.html" class="link">Esqueci minha senha / Primeiro acesso</a>
+
+      <button id="loginBtn" class="submit">ENTRAR</button>
+    </div>
+  </div>
+
+  <script src="../js/login.js"></script>
+</body>
+</html>
