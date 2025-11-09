@@ -1,38 +1,18 @@
-// js/login.js
+const btnRA = document.getElementById("btn-ra");
+const btnCPF = document.getElementById("btn-cpf");
+const raInput = document.getElementById("ra-input");
+const cpfInput = document.getElementById("cpf-input");
 
-const loginRA = document.getElementById('loginRA');
-const loginPw = document.getElementById('loginPw');
-const loginBtn = document.getElementById('loginBtn');
-const eye2 = document.getElementById('eye2');
-
-eye2.addEventListener('click', () => {
-  loginPw.type = loginPw.type === 'password' ? 'text' : 'password';
+btnRA.addEventListener("click", () => {
+  btnRA.classList.add("active");
+  btnCPF.classList.remove("active");
+  raInput.style.display = "block";
+  cpfInput.style.display = "none";
 });
 
-// NOTE: intentional bug: case-insensitive comparison (this is the "erro proposital")
-loginBtn.addEventListener('click', () => {
-  const ra = loginRA.value.trim();
-  const pw = loginPw.value;
-
-  if (!ra) { alert('Informe seu RA'); return; }
-  if (!pw) { alert('Informe sua senha'); return; }
-
-  const usersRaw = localStorage.getItem('uninove_users');
-  const users = usersRaw ? JSON.parse(usersRaw) : {};
-
-  if (!users[ra]) {
-    alert('Usuário não encontrado. Verifique o RA ou faça primeiro acesso.');
-    return;
-  }
-
-  const saved = users[ra];
-
-  // INTENTIONAL BUG: compare lowercase versions -> ignores case
-  if (saved.toLowerCase() === pw.toLowerCase()) {
-    // success: store current session (simple)
-    sessionStorage.setItem('loggedRA', ra);
-    window.location.href = 'dashboard.html';
-  } else {
-    alert('Senha incorreta.');
-  }
+btnCPF.addEventListener("click", () => {
+  btnCPF.classList.add("active");
+  btnRA.classList.remove("active");
+  raInput.style.display = "none";
+  cpfInput.style.display = "block";
 });
