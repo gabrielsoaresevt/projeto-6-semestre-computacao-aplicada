@@ -1,28 +1,37 @@
 <!-- login.html -->
-<!doctype html>
+<!DOCTYPE html>
 <html lang="pt-BR">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Login - Uninove</title>
-  <link rel="stylesheet" href="css/style.css">
-</head>
-<body class="login-page">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Login - Uninove</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+
+
+  </head>
+  <!-- <body class="login-page">
   <div class="login-panel" role="main" aria-labelledby="loginTitle">
     <div class="login-top">
-      <div class="logo">UNINOVE teste</div>
+      <div class="logo">UNINOVE</div>
+      <p>Realize acesso por:</p>
     </div>
 
     <div class="login-body">
       <div class="toggle-cta" role="tablist">
-        <button class="active">RA</button>
-        <button>CPF</button>
+        <button class="login-toggle active" data-type="ra">RA</button>
+        <button class="login-toggle" data-type="cpf">CPF</button>
       </div>
 
       <div class="field">
         <div class="or-input">
           <span>👤</span>
-          <input id="loginRA" placeholder="Digite seu RA" />
+          <input id="loginIdentifier" placeholder="Digite seu RA" />
         </div>
       </div>
 
@@ -38,8 +47,69 @@
 
       <button id="loginBtn" class="submit">ENTRAR</button>
     </div>
-  </div>
+  </div> -->
 
-  <script src="js/cadastro.js"></script>
-</body>
+  <body>
+    <div class="index-wrapper">
+      <div class="main-index">
+        <div class="main-left">
+          <h2>Bem-vindo!</h2>
+          <span class="line"></span>
+          <p>
+            Bem-vindo ao portal do aluno! Aqui você tem acesso rápido e seguro
+            às suas informações acadêmicas, atividades, notas e serviços da
+            universidade.
+          </p>
+          <button class="learn-more">
+            <a href="cadastro.html">Primeira vez?</a>
+          </button>
+        </div>
+
+        <div class="main-right">
+          <h2>Realize login com:</h2>
+
+          <div class="login-mode">
+            <button id="btn-ra" class="active">RA</button>
+            <button id="btn-cpf">CPF</button>
+          </div>
+
+          <div class="login-inputs">
+            <input type="text" id="ra-input" placeholder="Digite seu RA" />
+            <input
+              type="text"
+              id="cpf-input"
+              placeholder="Digite seu CPF"
+              style="display: none"
+            />
+            <input type="password" placeholder="Digite sua senha" />
+
+            <button class="submit">Entrar</button>
+            <div class="extra-links">
+              <a href="cadastro.html">Esqueci a senha</a>
+            </div>
+          </div>
+
+          <div class="socials">
+            <a href="https://www.instagram.com/uninoveoficial" target="_blank">
+              <i class="fab fa-instagram"></i>
+            </a>
+            <a
+              href="https://www.facebook.com/uninoveoficial/?locale=pt_BR"
+              target="_blank"
+            >
+              <i class="fab fa-facebook"></i>
+            </a>
+            <a
+              href="https://www.linkedin.com/school/uninove/posts/?feedView=all"
+              target="_blank"
+            >
+              <i class="fab fa-linkedin"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="js/login.js"></script>
+  </body>
 </html>

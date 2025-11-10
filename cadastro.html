@@ -1,52 +1,97 @@
 <!-- cadastro.html -->
-<!doctype html>
+<!DOCTYPE html>
 <html lang="pt-BR">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Primeiro Acesso - Cadastro de Senha</title>
-  <link rel="stylesheet" href="css/style.css">
-</head>
-<body>
-  <div class="container">
-    <div class="register-wrap" role="main" aria-labelledby="regTitle">
-      <div class="register-left" aria-hidden="false">
-        <div class="brand">UNINOVE
-          <small>Painel de Acesso - Primeiro Acesso</small>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Primeiro Acesso - Cadastro de Senha</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <!-- <body>
+    <div class="container">
+      <div class="register-wrap" role="main" aria-labelledby="regTitle">
+        <div class="register-left" aria-hidden="false">
+          <div class="brand">
+            UNINOVE
+            <small>Painel de Acesso - Primeiro Acesso</small>
+          </div>
+          <p style="margin-top: 18px; opacity: 0.95; max-width: 280px">
+            Crie sua senha seguindo os requisitos de segurança. Depois use a
+            tela de login para entrar.
+          </p>
         </div>
-        <p style="margin-top:18px; opacity:0.95; max-width: 280px;">
-          Crie sua senha seguindo os requisitos de segurança. Depois use a tela de login para entrar.
-        </p>
+
+        <div class="register-right">
+          <h2 id="regTitle">Criar senha (Primeiro acesso)</h2>
+
+          <div class="input">
+            <input
+              id="ra"
+              placeholder="Digite seu RA (ex: 1234567)"
+              aria-label="RA"
+            />
+          </div>
+
+          <div class="input" id="pwInput">
+            <input
+              id="password"
+              type="password"
+              placeholder="Digite sua senha"
+              aria-label="Senha"
+            />
+            <div id="togglePw" class="eye" title="Mostrar/Esconder senha">
+              👁️
+            </div>
+          </div>
+
+          <div class="pw-req" id="requirements" aria-live="polite">
+            <div id="rLen" class="no">• Mínimo 8 caracteres</div>
+            <div id="rLower" class="no">• Pelo menos uma letra minúscula</div>
+            <div id="rUpper" class="no">• Pelo menos uma letra maiúscula</div>
+            <div id="rNum" class="no">• Pelo menos um número</div>
+            <div id="rSpec" class="no">
+              • Pelo menos um caractere especial (!@#$...)
+            </div>
+          </div>
+
+          <div style="margin-top: 18px">
+            <button id="createBtn" class="btn">Criar senha e salvar</button>
+            <a href="login.html" class="link" style="margin-left: 12px"
+              >Já tenho login</a
+            >
+          </div>
+
+          <p style="margin-top: 18px; font-size: 13px; color: #677581">
+            Observação: para efeito deste exemplo as credenciais serão salvas no
+            <strong>localStorage</strong> do navegador.
+          </p>
+        </div>
+      </div>
+    </div> -->
+  <body>
+  <div class="cadastro-wrapper">
+    <div class="cadastro-main">
+      <div class="cadastro-left">
+        <h1>UNINOVE</h1>
+        <div class="linha"></div>
+        <p>Painel de Acesso - Primeiro Acesso</p>
+        <p>Crie sua senha seguindo os requisitos de segurança. Depois, use a tela de login para entrar.</p>
       </div>
 
-      <div class="register-right">
-        <h2 id="regTitle">Criar senha (Primeiro acesso)</h2>
-
-        <div class="input">
-          <input id="ra" placeholder="Digite seu RA (ex: 1234567)" aria-label="RA" />
-        </div>
-
-        <div class="input" id="pwInput">
-          <input id="password" type="password" placeholder="Digite sua senha" aria-label="Senha" />
-          <div id="togglePw" class="eye" title="Mostrar/Esconder senha">👁️</div>
-        </div>
-
-        <div class="pw-req" id="requirements" aria-live="polite">
-          <div id="rLen" class="no">• Mínimo 8 caracteres</div>
-          <div id="rLower" class="no">• Pelo menos uma letra minúscula</div>
-          <div id="rUpper" class="no">• Pelo menos uma letra maiúscula</div>
-          <div id="rNum" class="no">• Pelo menos um número</div>
-          <div id="rSpec" class="no">• Pelo menos um caractere especial (!@#$...)</div>
-        </div>
-
-        <div style="margin-top:18px;">
-          <button id="createBtn" class="btn">Criar senha e salvar</button>
-          <a href="login.html" class="link" style="margin-left:12px;">Já tenho login</a>
-        </div>
-
-        <p style="margin-top:18px; font-size:13px; color:#677581;">
-          Observação: para efeito deste exemplo as credenciais serão salvas no <strong>localStorage</strong> do navegador.
-        </p>
+      <div class="cadastro-right glass-box">
+        <h2>Criar senha <span>(Primeiro acesso)</span></h2>
+        <form>
+          <input type="password" placeholder="Digite sua nova senha" required />
+          <ul class="requisitos">
+            <li>Mínimo 8 caracteres</li>
+            <li>Pelo menos uma letra minúscula</li>
+            <li>Pelo menos uma letra maiúscula</li>
+            <li>Pelo menos um número</li>
+            <li>Pelo menos um caractere especial (!@#$...)</li>
+          </ul>
+          <button type="submit">Criar senha e salvar</button>
+          <a href="login.html" class="link-voltar">Já tenho login</a>
+        </form>
       </div>
     </div>
   </div>
