@@ -181,10 +181,11 @@ h2 { font-size:20px; margin-bottom:14px; color:#0b4478; }
   margin-top:6px;
 }
 
-/* ===== Dashboard (fictício) ===== */
 .dashboard {
   min-height:100vh;
-  background: linear-gradient(180deg,#fff,#f8fbff);
+  background: linear-gradient(180deg, #eef3f8 70%, var(--blue)); 
+  background-color: #eef3f8;
+  background-attachment: fixed;
 }
 .header {
   display:flex;
@@ -207,6 +208,10 @@ h2 { font-size:20px; margin-bottom:14px; color:#0b4478; }
 .hero .avatar {
   width:110px;height:110px;border-radius:50%;background:#0b3b63;
   box-shadow:0 8px 24px rgba(11,55,100,0.25);
+  background-image: url('https://i.pinimg.com/736x/81/e9/c8/81e9c8bcef2b0f7c6b4b7b903ccf8c2c.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 /* small responsive */
