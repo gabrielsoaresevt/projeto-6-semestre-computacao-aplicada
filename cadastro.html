@@ -7,7 +7,7 @@
     <title>Primeiro Acesso - Cadastro de Senha</title>
     <link rel="stylesheet" href="css/style.css" />
   </head>
-  <body>
+  <!-- <body>
     <div class="container">
       <div class="register-wrap" role="main" aria-labelledby="regTitle">
         <div class="register-left" aria-hidden="false">
@@ -67,8 +67,35 @@
           </p>
         </div>
       </div>
-    </div>
+    </div> -->
+  <body>
+  <div class="cadastro-wrapper">
+    <div class="cadastro-main">
+      <div class="cadastro-left">
+        <h1>UNINOVE</h1>
+        <div class="linha"></div>
+        <p>Painel de Acesso - Primeiro Acesso</p>
+        <p>Crie sua senha seguindo os requisitos de segurança. Depois, use a tela de login para entrar.</p>
+      </div>
 
-    <script src="js/cadastro.js"></script>
-  </body>
+      <div class="cadastro-right glass-box">
+        <h2>Criar senha <span>(Primeiro acesso)</span></h2>
+        <form>
+          <input type="password" placeholder="Digite sua nova senha" required />
+          <ul class="requisitos">
+            <li>Mínimo 8 caracteres</li>
+            <li>Pelo menos uma letra minúscula</li>
+            <li>Pelo menos uma letra maiúscula</li>
+            <li>Pelo menos um número</li>
+            <li>Pelo menos um caractere especial (!@#$...)</li>
+          </ul>
+          <button type="submit">Criar senha e salvar</button>
+          <a href="login.html" class="link-voltar">Já tenho login</a>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/cadastro.js"></script>
+</body>
 </html>
