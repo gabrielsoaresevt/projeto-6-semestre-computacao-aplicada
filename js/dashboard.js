@@ -1,18 +1,8 @@
-// js/dashboard.js
-const greet = document.getElementById('greet');
-const logout = document.getElementById('logout');
+const toggleBtn = document.getElementById("toggle-theme");
 
-const ra = sessionStorage.getItem('loggedRA');
-if (!ra) {
-  // no session -> redirect to login
-  window.location.href = 'login.html';
-} else {
-  // Display RA or a nicer name. The example image shows "Emilly" — you can adapt.
-  // For demo we show RA and a friendly name (if you want to change, edit below)
-  greet.innerHTML = `Olá, ${ra}!`;
-}
-
-logout.addEventListener('click', () => {
-  sessionStorage.removeItem('loggedRA');
-  window.location.href = 'login.html';
+toggleBtn.addEventListener("click", () => {
+  document.body.classList.toggle("dark-mode");
+  toggleBtn.textContent = document.body.classList.contains("dark-mode")
+    ? "Modo Claro"
+    : "Modo Escuro";
 });
