@@ -806,3 +806,13 @@ body.dark-mode div[style*="color:#6b7784"] {
   color: #aaa !important;
 }
 
+.card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.card:hover {
+  transform: translateY(-10px) scale(1.05);
+  box-shadow: 0 50px 90px rgba(0, 0, 0, 1);
+}
+
