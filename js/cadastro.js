@@ -61,7 +61,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  // Validar ao enviar
+  // ------ Validação ao enviar (Submit) ------
   if (form) {
     form.addEventListener('submit', (e) => {
       const ra = raInput ? raInput.value.trim() : '';
