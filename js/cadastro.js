@@ -1,33 +1,70 @@
-// js/cadastro.js
+// Validação de cadastro/senha em tempo real
+document.addEventListener('DOMContentLoaded', () => {
+  const raInput = document.getElementById('ra');
+  const senhaInput = document.getElementById('senha');
+  const confirmarInput = document.getElementById('confirmar_senha');
+  const form = document.querySelector('form');
 
-// helper: check requirements
-const password = document.getElementById('password');
-const raInput = document.getElementById('ra');
+  if (!senhaInput || !confirmarInput) return;
 
-const rLen = document.getElementById('rLen');
-const rLower = document.getElementById('rLower');
-const rUpper = document.getElementById('rUpper');
-const rNum = document.getElementById('rNum');
-const rSpec = document.getElementById('rSpec');
+  // Validar confirmação de senha em tempo real
+  senhaInput.addEventListener('input', () => {
+    const senha = senhaInput.value;
+    if (confirmarInput.value) {
+      if (senha === confirmarInput.value) {
+        confirmarInput.style.borderColor = '#4CAF50';
+      } else {
+        confirmarInput.style.borderColor = '#f44336';
+      }
+    }
+  });
 
-const togglePw = document.getElementById('togglePw');
-const createBtn = document.getElementById('createBtn');
+  confirmarInput.addEventListener('input', () => {
+    if (senhaInput.value) {
+      if (senhaInput.value === confirmarInput.value) {
+        confirmarInput.style.borderColor = '#4CAF50';
+      } else {
+        confirmarInput.style.borderColor = '#f44336';
+      }
+    }
+  });
 
-togglePw.addEventListener('click', () => {
-  password.type = password.type === 'password' ? 'text' : 'password';
+  // Validar ao enviar
+  if (form) {
+    form.addEventListener('submit', (e) => {
+      const ra = raInput.value.trim();
+      const senha = senhaInput.value;
+      const confirmar = confirmarInput.value;
+
+      // Validar RA
+      if (!ra) {
+        e.preventDefault();
+        alert('Digite seu RA!');
+        return;
+      }
+
+      // Verificar requisitos de senha
+      const temLength = senha.length >= 8;
+      const temLower = /[a-z]/.test(senha);
+      const temUpper = /[A-Z]/.test(senha);
+      const temNumber = /[0-9]/.test(senha);
+      const temSpecial = /[!@#$%^&*()_+\-=\[\]{};:'"",.<>?\\/\\|`~]/.test(senha);
+
+      if (!temLength || !temLower || !temUpper || !temNumber || !temSpecial) {
+        e.preventDefault();
+        alert('Senha não atende aos requisitos de segurança!');
+        return;
+      }
+
+      // Verificar se as senhas são iguais
+      if (senha !== confirmar) {
+        e.preventDefault();
+        alert('As senhas não conferem!');
+        return;
+      }
+    });
+  }
 });
-
-// validation function
-function validate(pw){
-  const checks = {
-    len: pw.length >= 8,
-    lower: /[a-z]/.test(pw),
-    upper: /[A-Z]/.test(pw),
-    num: /\d/.test(pw),
-    spec: /[^\w\s]/.test(pw)
-  };
-  // update UI
-  rLen.className = checks.len ? 'ok' : 'no';
   rLower.className = checks.lower ? 'ok' : 'no';
   rUpper.className = checks.upper ? 'ok' : 'no';
   rNum.className = checks.num ? 'ok' : 'no';
