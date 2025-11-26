@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Painel - Uninove</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/darkmode.css">
+</head>
+<body class="dashboard">
+  <header class="header">
+    <div class="greet" id="greet">Olá, Aluno! Seja bem vindo!</div>
+    <div>
+      <button class="btn" id="toggle-theme">Modo Escuro</button>
+      <button class="btn" id="logout">Sair</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div>
+        <h1 style="margin-bottom:6px;">Bem vindo(a) ao painel de acesso rápido!</h1>
+        <div style="margin-top: 16px; font-size: 14px; color: #fff;">
+          <span style="font-weight: 600;" id="info-completo">Curso: - | Unidade: - | Série: - | Turma: - | Turno: -</span>
+        </div>
+      </div>
+      <div class="avatar" aria-hidden="true"></div>
+    </section>
+
+    <div class="container" style="padding-top:22px;">
+      <div style="display:flex; gap:24px; flex-wrap:wrap; justify-content:center; padding-bottom:80px;">
+        <div style="width:260px; background:#fff; border-radius:14px; padding:28px; box-shadow:var(--card-shadow); text-align:center;">
+          <div style="margin-bottom: 16px;"><img src="./assets/central.png" style="width: 64px; height: 64px; object-fit: contain;"></div>
+          <div style="font-weight:700; margin-bottom:8px;">Central do Aluno</div>
+          <div style="color:#6b7784; font-size:14px;">Acesse aqui sua Central</div>
+        </div>
+
+        <div style="width:260px; background:#fff; border-radius:14px; padding:28px; box-shadow:var(--card-shadow); text-align:center;">
+          <div style="margin-bottom: 16px;"><img src="./assets/sala.png" style="width: 64px; height: 64px; object-fit: contain;"></div>
+          <div style="font-weight:700; margin-bottom:8px;">Sala do Futuro</div>
+          <div style="color:#6b7784; font-size:14px;">Acesso aos seus conteúdos virtuais</div>
+        </div>
+
+        <div style="width:260px; background:#fff; border-radius:14px; padding:28px; box-shadow:var(--card-shadow); text-align:center;">
+          <div style="margin-bottom: 16px;"><img src="./assets/calendario.png" style="width: 64px; height: 64px; object-fit: contain;"></div>
+          <div style="font-weight:700; margin-bottom:8px;">Calendário de Aulas</div>
+          <div style="color:#6b7784; font-size:14px;">Acesso ao Calendário de Aulas</div>
+        </div>
+
+        <div style="width:260px; background:#fff; border-radius:14px; padding:28px; box-shadow:var(--card-shadow); text-align:center;">
+          <div style="margin-bottom: 16px;"><img src="https://i.pinimg.com/1200x/d3/a4/21/d3a42160f600dddd066a842e55b0731f.jpg" style="width: 64px; height: 64px; object-fit: contain;"></div>
+          <div style="font-weight:700; margin-bottom:8px;">QR Code</div>
+          <div style="color:#6b7784; font-size:14px;">Faça o download do seu Cartão RA</div>
+        </div>
+
+        <div style="width:260px; background:#fff; border-radius:14px; padding:28px; box-shadow:var(--card-shadow); text-align:center;">
+          <div style="margin-bottom: 16px;"><img src="./assets/aapa.png" style="width: 64px; height: 64px; object-fit: contain;"></div>
+          <div style="font-weight:700; margin-bottom:8px;">AAPA</div>
+          <div style="color:#6b7784; font-size:14px;">Ambiente de Apoio na Plataforma de Aprendizagem</div>
+        </div>
+
+        <div style="width:260px; background:#fff; border-radius:14px; padding:28px; box-shadow:var(--card-shadow); text-align:center;">
+          <div style="margin-bottom: 16px;"><img src="./assets/financas.png" style="width: 64px; height: 64px; object-fit: contain;"></div>
+          <div style="font-weight:700; margin-bottom:8px;">Minhas Finanças</div>
+          <div style="color:#6b7784; font-size:14px;">Acesse suas informações financeiras</div>
+        </div>
+
+        <div style="width:260px; background:#fff; border-radius:14px; padding:28px; box-shadow:var(--card-shadow); text-align:center;">
+          <div style="margin-bottom: 16px;"><img src="https://aluno.uninove.br/seu/CENTRAL/aluno/assets/app/media/img/inicial/icone_biblioteca.png" style="width: 64px; height: 64px; object-fit: contain;"></div>
+          <div style="font-weight:700; margin-bottom:8px;">Biblioteca Digital</div>
+          <div style="color:#6b7784; font-size:14px;">Acesse sua Biblioteca Digital</div>
+        </div>
+
+        <div style="width:260px; background:#fff; border-radius:14px; padding:28px; box-shadow:var(--card-shadow); text-align:center;">
+          <div style="margin-bottom: 16px;"><img src="https://i.pinimg.com/1200x/56/c7/40/56c7400c3edf71ea976702704e7fdc1f.jpg" style="width: 64px; height: 64px; object-fit: contain;"></div>
+          <div style="font-weight:700; margin-bottom:8px;">Conta Google</div>
+          <div style="color:#6b7784; font-size:14px;">Redefinir senha do seu e-mail</div>
+        </div>
+
+        <div style="width:260px; background:#fff; border-radius:14px; padding:28px; box-shadow:var(--card-shadow); text-align:center;">
+          <div style="margin-bottom: 16px;"><img src="https://aluno.uninove.br/seu/CENTRAL/aluno/assets/app/media/img/inicial/icone_voxy.png" style="width: 64px; height: 64px; object-fit: contain;"></div>
+          <div style="font-weight:700; margin-bottom:8px;">Voxy</div>
+          <div style="color:#6b7784; font-size:14px;">Acesse a plataforma do Voxy</div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script src="js/dashboard.js"></script>
+</body>
+</html>
