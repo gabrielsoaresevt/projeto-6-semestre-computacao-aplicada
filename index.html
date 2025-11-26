@@ -13,7 +13,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
 
-    <base href="/projeto-6-semestre-computacao-aplicada/">
+    <!-- <base href="/projeto-6-semestre-computacao-aplicada/"> -->
 
   </head>
   <!-- <body class="login-page">
@@ -44,7 +44,7 @@
         </div>
       </div>
 
-      <a href="cadastro.html" class="link">Esqueci minha senha / Primeiro acesso</a>
+      <a href="cadastro_form.php" class="link">Esqueci minha senha / Primeiro acesso</a>
 
       <button id="loginBtn" class="submit">ENTRAR</button>
     </div>
@@ -61,9 +61,7 @@
             às suas informações acadêmicas, atividades, notas e serviços da
             universidade.
           </p>
-          <button class="learn-more">
-            <a href="cadastro.html">Primeira vez?</a>
-          </button>
+          <a href="cadastro_form.php" class="btn-primeira-vez">Primeira vez?</a>
         </div>
 
         <div class="main-right">
@@ -75,19 +73,22 @@
           </div>
 
           <div class="login-inputs">
-            <input type="text" id="ra-input" placeholder="Digite seu RA" />
-            <input
-              type="text"
-              id="cpf-input"
-              placeholder="Digite seu CPF"
-              style="display: none"
-            />
-            <input type="password" placeholder="Digite sua senha" />
+            <form id="loginForm" method="post" action="login.php">
+              <input type="text" id="ra-input" name="ra" placeholder="Digite seu RA" />
+              <input
+                type="text"
+                id="cpf-input"
+                name="cpf"
+                placeholder="Digite seu CPF"
+                style="display: none"
+              />
+              <input id="password-input" name="senha" type="password" placeholder="Digite sua senha" />
 
-            <button class="submit">Entrar</button>
-            <div class="extra-links">
-              <a href="cadastro.html">Esqueci a senha</a>
-            </div>
+              <button class="submit" type="submit">Entrar</button>
+              <div class="extra-links">
+                <a href="recuperar_senha_form.php">Esqueci a senha</a>
+              </div>
+            </form>
           </div>
 
           <div class="socials">
