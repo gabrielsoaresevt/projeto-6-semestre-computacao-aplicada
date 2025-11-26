@@ -1,56 +1,70 @@
-// Validação de cadastro/senha em tempo real
+// Validação de cadastro/senha em tempo real com checks dinâmicos
 document.addEventListener('DOMContentLoaded', () => {
   const raInput = document.getElementById('ra');
   const senhaInput = document.getElementById('senha');
   const confirmarInput = document.getElementById('confirmar_senha');
   const form = document.querySelector('form');
 
-  const rLower = document.getElementById('rLower');
-  const rUpper = document.getElementById('rUpper');
-  const rNum   = document.getElementById('rNum');
-  const rSpec  = document.getElementById('rSpec');
-  const createBtn = document.getElementById('createBtn');
+  // Elementos de requisitos
+  const reqLen = document.getElementById('req-len');
+  const reqLower = document.getElementById('req-lower');
+  const reqUpper = document.getElementById('req-upper');
+  const reqNum = document.getElementById('req-num');
+  const reqSpec = document.getElementById('req-spec');
 
-  if (!senhaInput || !confirmarInput) return;
-
-  // ------ Função de validação de senha ------
-  function validate(senha) {
+  function checkPassword(pw) {
     const checks = {
-      lower: /[a-z]/.test(senha),
-      upper: /[A-Z]/.test(senha),
-      num:   /[0-9]/.test(senha),
-      spec:  /[!@#$%^&*()_+\-=\[\]{};:'",.<>?\\/|`~]/.test(senha),
-      len:   senha.length >= 8
+      len: pw.length >= 8,
+      lower: /[a-z]/.test(pw),
+      upper: /[A-Z]/.test(pw),
+      num: /[0-9]/.test(pw),
+      spec: /[!@#$%^&*()_+\-=[\]{};:'".,<>?/\\|`~]/.test(pw)
     };
 
-    // Atualiza indicadores visuais
-    if (rLower) rLower.className = checks.lower ? 'ok' : 'no';
-    if (rUpper) rUpper.className = checks.upper ? 'ok' : 'no';
-    if (rNum)   rNum.className   = checks.num   ? 'ok' : 'no';
-    if (rSpec)  rSpec.className  = checks.spec  ? 'ok' : 'no';
+    // Atualizar visual dos requisitos
+    if (reqLen) {
+      checks.len ? reqLen.classList.add('atendido') : reqLen.classList.remove('atendido');
+    }
+    if (reqLower) {
+      checks.lower ? reqLower.classList.add('atendido') : reqLower.classList.remove('atendido');
+    }
+    if (reqUpper) {
+      checks.upper ? reqUpper.classList.add('atendido') : reqUpper.classList.remove('atendido');
+    }
+    if (reqNum) {
+      checks.num ? reqNum.classList.add('atendido') : reqNum.classList.remove('atendido');
+    }
+    if (reqSpec) {
+      checks.spec ? reqSpec.classList.add('atendido') : reqSpec.classList.remove('atendido');
+    }
 
     return Object.values(checks).every(Boolean);
   }
 
-  // ------ Validação em tempo real ------
-  senhaInput.addEventListener('input', () => {
-    validate(senhaInput.value);
+  if (!senhaInput || !confirmarInput) return;
 
-    if (confirmarInput.value.length > 0) {
-      confirmarInput.style.borderColor =
-        senhaInput.value === confirmarInput.value ? '#4CAF50' : '#f44336';
+  // Validar senha em tempo real e atualizar checks
+  senhaInput.addEventListener('input', () => {
+    const pw = senhaInput.value;
+    checkPassword(pw);
+
+    // Feedback de confirmação
+    if (confirmarInput.value) {
+      confirmarInput.style.borderColor = (pw === confirmarInput.value) ? '#4CAF50' : '#f44336';
     }
   });
 
+  // Feedback de confirmação
   confirmarInput.addEventListener('input', () => {
-    confirmarInput.style.borderColor =
-      senhaInput.value === confirmarInput.value ? '#4CAF50' : '#f44336';
+    if (senhaInput.value) {
+      confirmarInput.style.borderColor = (senhaInput.value === confirmarInput.value) ? '#4CAF50' : '#f44336';
+    }
   });
 
   // ------ Validação ao enviar (Submit) ------
   if (form) {
     form.addEventListener('submit', (e) => {
-      const ra = raInput.value.trim();
+      const ra = raInput ? raInput.value.trim() : '';
       const senha = senhaInput.value;
       const confirmar = confirmarInput.value;
 
@@ -60,7 +74,7 @@ document.addEventListener('DOMContentLoaded', () => {
         return;
       }
 
-      if (!validate(senha)) {
+      if (!checkPassword(senha)) {
         e.preventDefault();
         alert('Senha não atende aos requisitos de segurança!');
         return;
@@ -71,37 +85,6 @@ document.addEventListener('DOMContentLoaded', () => {
         alert('As senhas não conferem!');
         return;
       }
-    });
-  }
-
-  // ------ Botão de criação (localStorage) ------
-  if (createBtn) {
-    createBtn.addEventListener('click', () => {
-      const ra = raInput.value.trim();
-      const pw = senhaInput.value;
-
-      if (!ra) {
-        alert('Informe seu RA.');
-        raInput.focus();
-        return;
-      }
-
-      if (!validate(pw)) {
-        alert('Senha inválida: verifique os requisitos.');
-        senhaInput.focus();
-        return;
-      }
-
-      // Simulação usando localStorage
-      const usersRaw = localStorage.getItem('uninove_users');
-      const users = usersRaw ? JSON.parse(usersRaw) : {};
-
-      // Atenção: apenas simulação — nunca salve senhas assim em produção
-      users[ra] = pw;
-      localStorage.setItem('uninove_users', JSON.stringify(users));
-
-      alert('Senha criada com sucesso! Agora faça login.');
-      window.location.href = 'login.html';
     });
   }
 });

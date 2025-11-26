@@ -59,12 +59,12 @@
             <input type="password" id="confirmar_senha" name="confirmar_senha" placeholder="Confirme sua senha" required />
           </div>
           
-          <ul class="requisitos">
-            <li>Mínimo 8 caracteres</li>
-            <li>Pelo menos uma letra minúscula</li>
-            <li>Pelo menos uma letra maiúscula</li>
-            <li>Pelo menos um número</li>
-            <li>Pelo menos um caractere especial (!@#$...)</li>
+          <ul class="requisitos" id="requisitos">
+            <li id="req-len"><span class="check">✓</span> Mínimo 8 caracteres</li>
+            <li id="req-lower"><span class="check">✓</span> Pelo menos uma letra minúscula</li>
+            <li id="req-upper"><span class="check">✓</span> Pelo menos uma letra maiúscula</li>
+            <li id="req-num"><span class="check">✓</span> Pelo menos um número</li>
+            <li id="req-spec"><span class="check">✓</span> Pelo menos um caractere especial (!@#$...)</li>
           </ul>
           <button type="submit">Criar senha e salvar</button>
           <a href="index.html" class="link-voltar">Já tenho login</a>
