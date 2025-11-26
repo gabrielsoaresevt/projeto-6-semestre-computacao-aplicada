@@ -756,13 +756,25 @@ input[type="password"]:focus {
   margin-bottom: 6px;
   padding-left: 20px;
   position: relative;
+  transition: color 0.3s ease;
+  color: rgba(255, 255, 255, 0.5);
 }
 
-.requisitos li:before {
-  content: "✓";
+.requisitos li .check {
   position: absolute;
   left: 0;
   color: #4CAF50;
+  font-weight: bold;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.requisitos li.atendido {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.requisitos li.atendido .check {
+  opacity: 1;
 }
 
 button[type="submit"] {
@@ -796,16 +808,6 @@ button[type="submit"]:hover {
   text-decoration: underline;
 }
 
-.requisitos {
-  list-style: none;
-  font-size: 15px;
-  color: #bbb;
-  margin-bottom: 25px;
-}
-
-.requisitos li {
-  margin-bottom: 5px;
-}
 
 button {
   background: linear-gradient(90deg, var(--azul-padrao), var(--white));
@@ -856,41 +858,71 @@ button:hover {
 
 /* modo dark sombras */
 body.dark-mode {
-  --bg-color: linear-gradient(180deg, #1e1e1e 70%, #333);
-  --text-color: #e1e1e1;
-  --header-bg: #302e2e00;
-  --card-shadow: 0 4px 12px rgba(255, 255, 255, 0.08);
-  background: var(--bg-color);
-  color: var(--text-color);
+  background: #1e1e1e !important;
+  color: #e1e1e1 !important;
   background-attachment: fixed;
 }
 
 body.dark-mode .header {
-  background: var(--header-bg);
-  color: #fff;
-  
+  background: #2a2a2a !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
 }
 
+/* Greet (Olá) com cores azuis mantidas */
+body.dark-mode .greet {
+  color: var(--blue) !important;
+  font-weight: 600;
+}
+
+/* Botões sair e modo claro/escuro - mantêm gradiente azul */
 body.dark-mode .btn {
-  background: #2a2a2a;
-  color: #fff;
+  background: linear-gradient(180deg, var(--blue), #0a5fb4) !important;
+  color: #fff !important;
+  border: none;
 }
 
 body.dark-mode .btn:hover {
-  background: #333;
+  background: linear-gradient(180deg, #0a5fb4, #084299) !important;
 }
 
+/* Seção hero - mantém fundo azul */
 body.dark-mode .hero {
-  background: var(--blue);
-  color: #fff;
+  background: linear-gradient(180deg, var(--blue), #0a5fb4) !important;
+  color: #fff !important;
 }
 
+/* Avatar mantém imagem original no dark mode */
+body.dark-mode .avatar {
+  background-image: url('https://i.pinimg.com/736x/81/e9/c8/81e9c8bcef2b0f7c6b4b7b903ccf8c2c.jpg') !important;
+  background-size: cover !important;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+  border-radius: 50%;
+  opacity: 1 !important;
+}
+
+body.dark-mode .container {
+  background: transparent !important;
+}
+
+/* Cards mantêm fundo claro */
 body.dark-mode div[style*="background:#fff"] {
-  background: #1e1e1e !important;
-  color: #e1e1e1;
-  
+  background: #fff !important;
+  color: #333 !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
 }
 
 body.dark-mode div[style*="color:#6b7784"] {
-  color: #aaa !important;
+  color: #6b7784 !important;
 }
+
+body.dark-mode div[style*="background:#f"] {
+  background: #fff !important;
+}
+
+/* Cards específicos mantêm fundo claro */
+body.dark-mode .container div[style*="width:260px"] {
+  background: #fff !important;
+  color: #333 !important;
+}
+
