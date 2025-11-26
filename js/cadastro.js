@@ -70,7 +70,6 @@ document.addEventListener('DOMContentLoaded', () => {
   rNum.className = checks.num ? 'ok' : 'no';
   rSpec.className = checks.spec ? 'ok' : 'no';
   return Object.values(checks).every(Boolean);
-}
 
 password.addEventListener('input', (e) => {
   validate(e.target.value);
